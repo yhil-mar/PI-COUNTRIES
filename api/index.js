@@ -19,10 +19,16 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const uploadDB = require('./src/middlewares/uploadDB.js');
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+conn.sync({ alter: true }).then(() => {
+  server.listen(3001, async () => {
+    try {
+      // await uploadDB();
+      console.log('%s listening at 3001'); // eslint-disable-line no-console
+    } catch (error) {
+      throw error.message;
+    };
   });
 });

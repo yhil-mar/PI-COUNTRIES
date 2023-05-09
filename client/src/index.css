@@ -1,13 +1,15 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Aquí se hace un reseteo del tamaño de caja para todo el contenido del front, así cada componente tendrá el tamaño especificado y no crecerá si se adiciona algún padding */
+html {
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::after,
+::before {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', 'Work Sans', 'Hind', sans-serif;
 }

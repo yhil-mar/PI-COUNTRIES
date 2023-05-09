@@ -1,11 +1,23 @@
 import './App.css';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { Form, Home, Landing, Detail } from './views/index';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 
 function App() {
+
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+        {useLocation().pathname !== '/' && <NavBar />}
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/detail/:id' element={<Detail />} />
+        <Route path='/create' element={<Form />} />
+      </Routes>
+      {useLocation().pathname === '/home' && <Footer />}
     </div>
   );
-}
+};
 
 export default App;
