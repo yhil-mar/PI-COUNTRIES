@@ -8,7 +8,7 @@ const addHandler = async (event, form) => {
 
     let clean = false;
 
-    await axios.post('http://localhost:3001/activities/', newActivity)
+    await axios.post('/activities', newActivity)
         .then(response => {
             if (response.data[1]) {
                 alert('Activity created!');

@@ -3,6 +3,8 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { Form, Home, Landing, Detail } from './views/index';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
 

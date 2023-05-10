@@ -20,15 +20,25 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const uploadDB = require('./src/middlewares/uploadDB.js');
+require('dotenv').config();
+const {PORT} = process.env;
 
-// Syncing all the models at once.
-conn.sync({ alter: true }).then(() => {
-  server.listen(3001, async () => {
+conn.sync({ force: true }).then(() => {
+
+  server.listen(PORT, async () => {
+
     try {
-      // await uploadDB();
-      console.log('%s listening at 3001'); // eslint-disable-line no-console
+
+      await uploadDB();
+
+      console.log('%s listening at ' + PORT);
+
     } catch (error) {
+
       throw error.message;
+
     };
+
   });
+
 });

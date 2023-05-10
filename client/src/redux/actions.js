@@ -22,7 +22,7 @@ import {
 
 export const getCountries = () => {
     return async (dispatch) => {
-        const response = await axios.get('http://localhost:3001/countries');
+        const response = await axios.get('/countries');
         const countries = response.data;
         dispatch({ type: GET_COUNTRIES, payload: countries });
     };
@@ -30,7 +30,7 @@ export const getCountries = () => {
 
 export const getCountry = (id) => {
     return async (dispatch) => {
-        const response = await axios.get(`http://localhost:3001/countries/${id}`);
+        const response = await axios.get(`/countries/${id}`);
         const country = response.data;
         dispatch({ type: GET_COUNTRY, payload: country });
     };
@@ -38,7 +38,7 @@ export const getCountry = (id) => {
 
 export const getActivities = () => {
     return async (dispatch) => {
-        const response = await axios.get('http://localhost:3001/activities/');
+        const response = await axios.get('/activities');
         const activities = response.data;
         dispatch({ type: GET_ACTIVITIES, payload: activities });
     };
